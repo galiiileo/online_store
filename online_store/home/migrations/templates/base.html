@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LOGA{% endblock %}</title>
+    
+   
+</head>
+<body>
+
+    
+    <nav>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            nav {
+                background-color: #f8f9fa;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between; /* Space between items */
+            }
+            p {
+                font-size: 24px;
+                font-weight: bold;
+                margin-right: 20px;
+            }
+            li {
+                margin: 0 15px;
+            }
+            a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+            a:hover {
+                color: #007bff;
+            }
+            input[type="text"] {
+                padding: 5px;
+                margin-left: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            img {
+                width: 24px; /* Adjust size as needed */
+                height: 24px; /* Adjust size as needed */
+            }
+            .nav-left {
+                display: flex;
+                align-items: center;
+            }
+            .nav-right {
+                display: flex;
+                align-items: center;
+            }
+        </style>
+        <ul>
+            <div class="nav-left">
+                <p>LOGA</p>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Contact</a></li>
+                <input type="text" id="search" name="search" placeholder="What are you searching for..">
+            </div>
+            <div class="nav-right">
+                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=37975&format=png&color=000000" alt="Favorites"></a></li>
+                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=9720&format=png&color=000000" alt="Cart"></a></li>
+                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile"></a></li>
+            </div>
+        </ul>
+    </nav>
+
+    
+    <div class="container mt-4">
+        {% block content %}
+    
+    
+
+    {% endblock content %}
+    </div>
+
+  
+    <footer>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+    
+            footer {
+                background-color: #20253a;
+                padding: 20px 0;
+                color: #b8c6d0;
+            }
+    
+            .big {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding: 0 20px;
+            }
+    
+            .container2 {
+                display: flex;
+                justify-content: space-between;
+                flex: 1;
+                margin-bottom: 20px;
+            }
+    
+            .bod {
+                flex: 1;
+                margin: 0 15px;
+            }
+    
+            .bolda {
+                font-size: 25px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: #ffffff; /* Light color for section titles */
+            }
+    
+            .linko {
+                display: flex;
+                flex-direction: column;
+                font-size: 15px;
+            }
+    
+            .linko a {
+                color: #7291a7;
+                text-decoration: none;
+                margin: 5px 0;
+                transition: color 0.3s;
+            }
+    
+            .linko a:hover {
+                color: #ffffff; /* Change color on hover */
+            }
+    
+            .container {
+                text-align: center;
+                margin-top: 20px;
+            }
+    
+            .loka {
+                margin: 10px 0;
+            }
+    
+            .flex {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+    
+            .lokak {
+                width: 40px; /* Adjust size as needed */
+                height: 40px; /* Adjust size as needed */
+                margin: 0 10px;
+                transition: transform 0.3s;
+            }
+    
+            .lokak:hover {
+                transform: scale(1.1); /* Slightly enlarge icons on hover */
+            }
+    
+            @media (max-width: 768px) {
+                .big {
+                    flex-direction: column;
+                    align-items: center;
+                }
+    
+                .container2 {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+            .moka{
+                font-size: 17px;
+            }
+        </style>
+        <div class="big">
+            <div class="container2">
+                <section class="bod">
+                    
+                        <p class="bolda">Support</p>
+                        <p  class ="moka">112 Dokki, Giza, Egypt</p>
+                        <p class ="moka">loga125outlook@gmail.com</p>
+                        <p class ="moka">+201026874915</p>
+                   
+                </section>
+                <section class="bod">
+                    <p class="bolda">Account</p>
+                    <div class="linko">
+                        <a href="">My Account</a>
+                        <a href="">Cart</a>
+                        <a href="">Favourite List</a>
+                    </div>
+                </section>
+                <section class="bod">
+                    <p class="bolda">Quick List</p>
+                    <div class="linko">
+                        <a href="">Terms Of Use</a>
+                        <a href="">Privacy And Policy</a>
+                    </div>
+                </section>
+            </div>
+            <div class="container">
+                <p class="loka"><img src="https://img.icons8.com/?size=100&id=4bFprD-dLuxb&format=png&color=000000"></p>
+                <p>Follow us on:
+                    <div class="flex">
+                        <img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="Facebook" class="lokak">
+                        <img src="https://img.icons8.com/?size=100&id=32323&format=png&color=000000" alt="Twitter" class="lokak">
+                        <img src="https://img.icons8.com/?size=100&id=16713&format=png&color=000000" alt="Instagram" class="lokak">
+                        <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn" class="lokak">
+                    </div>
+                </p>
+            </div>
+        </div>
+    </footer>
+   
+</body>
+</html>
