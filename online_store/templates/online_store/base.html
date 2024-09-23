@@ -26,7 +26,7 @@
                 margin: 0;
                 display: flex;
                 align-items: center;
-                justify-content: space-between; /* Space between items */
+                justify-content: space-between;
             }
             p {
                 font-size: 24px;
@@ -52,17 +52,74 @@
                 border-radius: 4px;
             }
             img {
-                width: 24px; /* Adjust size as needed */
-                height: 24px; /* Adjust size as needed */
+                width: 24px;
+                height: 24px;
             }
             .nav-left {
                 display: flex;
                 align-items: center;
             }
             .nav-right {
-                display: flex;
-                align-items: center;
-            }
+    display: flex;
+    align-items: center;
+}
+
+.icon-container {
+    position: relative;
+    margin: 0 15px;
+}
+            .search-container {
+    position: relative;
+    width: 300px;
+}
+
+#search {
+    width: 100%;
+    padding: 10px 40px 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    position:absolute;
+
+    right:-65px;
+    background-color: #f8f9fa;
+   opacity: 100%;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-button:hover {
+  opacity: 60%;
+}
+
+.search-button i {
+    margin: 0;
+}
+.details {
+            display: none;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        .icon-container:hover .details {
+            display: block; 
+        }
         </style>
         <ul>
             <div class="nav-left">
@@ -71,12 +128,33 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">Sign Up</a></li>
                 <li><a href="#">Contact</a></li>
-                <input type="text" id="search" name="search" placeholder="What are you searching for..">
+                <div class="search-container">
+                    <button type="submit" class="search-button"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=000000"></button>
+                    <input type="text" id="search" name="search" placeholder="What are you searching for..">
+                
+                </div>
             </div>
             <div class="nav-right">
-                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=37975&format=png&color=000000" alt="Favorites"></a></li>
-                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=9720&format=png&color=000000" alt="Cart"></a></li>
-                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile"></a></li>
+                <li class="icon-container">
+                    <a href="#">
+                        <img src="https://img.icons8.com/?size=100&id=37975&format=png&color=000000" alt="Favorites">
+                    </a>
+                    <div class="details">Your favorite items</div>
+                </li>
+                
+                <li class="icon-container">
+                    <a href="#">
+                        <img src="https://img.icons8.com/?size=100&id=9720&format=png&color=000000" alt="Cart">
+                    </a>
+                    <div class="details">Items in your cart</div>
+                </li>
+                
+                <li class="icon-container">
+                    <a href="#">
+                        <img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile">
+                    </a>
+                    <div class="details">Manage your profile</div>
+                </li>
             </div>
         </ul>
     </nav>
@@ -127,7 +205,7 @@
                 font-size: 25px;
                 font-weight: bold;
                 margin-bottom: 15px;
-                color: #ffffff; /* Light color for section titles */
+                color: #ffffff;
             }
     
             .linko {
@@ -144,7 +222,7 @@
             }
     
             .linko a:hover {
-                color: #ffffff; /* Change color on hover */
+                color: #ffffff;
             }
     
             .container {
@@ -163,14 +241,14 @@
             }
     
             .lokak {
-                width: 40px; /* Adjust size as needed */
-                height: 40px; /* Adjust size as needed */
+                width: 40px;
+                height: 40px;
                 margin: 0 10px;
                 transition: transform 0.3s;
             }
     
             .lokak:hover {
-                transform: scale(1.1); /* Slightly enlarge icons on hover */
+                transform: scale(1.1);
             }
     
             @media (max-width: 768px) {
