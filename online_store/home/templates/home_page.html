@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'home/CSS/styles.css' %}">
+
+<div class="offer-slider-container">
+
+<p class="flasho">Flash-Sale Offers</p>
+    <div class="offer-slider">
+        
+        <div class="slide">
+            <img src="{% static 'home/image\offer 1.jpeg' %}" alt="Offer 1">
+        </div>
+        <div class="slide">
+            <img src="{% static 'home/image\offer2.jpeg' %}" alt="Offer 2">
+        </div>
+        <div class="slide">
+            <img src="{% static 'home/image\offer3.jpeg' %}" alt="Offer 3">
+        </div>
+    </div>
+
+   
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  
+    <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+
+<div class="categories-section">
+    <h2>Browse By Category</h2>
+    <div class="categories">
+        {% for category in categories %}
+        <div class="category">
+            <a href="{% url 'category_view' category.id %}">
+                {% if category.image %}
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                {% else %}
+                    <img src="{% static 'images/default-category-image.png' %}" alt="{{ category.name }}">
+                {% endif %}
+                <span>{{ category.name }}</span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="best-selling-section"> 
+    <h2>This Month's Best Selling Products</h2>
+    <a href="{% url 'all_products' %}" class="view-all-btn btn">View All</a>
+</div>
+<div class="products">
+    {% for product in products %}
+    <div class="product-card">
+        <div class="details">{{ product.desc }}</div>
+        <div class="product-image">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'images/default-product-image.png' %}" alt="No Image Available">
+            {% endif %}
+        </div>
+        <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            
+            <p class="price">${{ product.price }}</p>
+            {% if product.old_price %}
+                <p class="old-price">${{ product.old_price }}</p>
+            {% endif %}
+            <p class="description">{{ product.description }}</p>
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="reviews">({{ product.reviews_count }})</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<script src="{% static 'home/js/script.js' %}"></script>
+{% endblock content %}
+
+

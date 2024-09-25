@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,6 +51,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # This folder contains your app-specific static files
+]
+
+# Directory where collectstatic will place all static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# URL for referencing static files
+STATIC_URL = '/static/'
 ROOT_URLCONF = 'online_store.urls'
 
 TEMPLATES = [
