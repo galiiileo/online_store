@@ -267,3 +267,25 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Other styles... */
+}
+
+.add-to-cart-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Reduced padding for a smaller button */
+    font-size: 14px; /* Smaller font size */
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 100px auto; /* Center the button */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838; /* Darker green */
+}

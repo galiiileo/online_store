@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% load static %}
 
 {% block title %}
@@ -36,9 +36,13 @@ Search Results
                 </div>
             </div>
         </div>
+        <div>
+        <button class="add-to-cart-btn" onclick="checkLogin()">Add to Cart</button> <!-- Button outside of the card -->
+    </div>
         {% endfor %}
     {% else %}
         <p>No products found matching your search criteria.</p>
     {% endif %}
 </div>
+<script src="{% static 'home/js/cart.js' %}"></script>
 {% endblock content %}

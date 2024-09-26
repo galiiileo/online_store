@@ -40,3 +40,6 @@ class ProductCategory(models.Model):
     class Meta:
         managed = True
         db_table = 'product_category'
+
+
+

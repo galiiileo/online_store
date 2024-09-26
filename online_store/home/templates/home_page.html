@@ -10,25 +10,21 @@ Home
 <link rel="stylesheet" href="{% static 'home/CSS/styles.css' %}">
 
 <div class="offer-slider-container">
-
-<p class="flasho">Flash-Sale Offers</p>
+    <p class="flasho">Flash-Sale Offers</p>
     <div class="offer-slider">
-        
         <div class="slide">
-            <img src="{% static 'home/image\offer 1.jpeg' %}" alt="Offer 1">
+            <img src="{% static 'home/image/offer 1.jpeg' %}" alt="Offer 1">
         </div>
         <div class="slide">
-            <img src="{% static 'home/image\offer2.jpeg' %}" alt="Offer 2">
+            <img src="{% static 'home/image/offer2.jpeg' %}" alt="Offer 2">
         </div>
         <div class="slide">
-            <img src="{% static 'home/image\offer3.jpeg' %}" alt="Offer 3">
+            <img src="{% static 'home/image/offer3.jpeg' %}" alt="Offer 3">
         </div>
     </div>
-
-   
+  
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
   
     <div class="dots-container">
         <span class="dot" onclick="currentSlide(1)"></span>
@@ -55,11 +51,11 @@ Home
     </div>
 </div>
 
-
 <div class="best-selling-section"> 
     <h2>This Month's Best Selling Products</h2>
     <a href="{% url 'all_products' %}" class="view-all-btn btn">View All</a>
 </div>
+
 <div class="products">
     {% for product in products %}
     <div class="product-card">
@@ -73,7 +69,6 @@ Home
         </div>
         <div class="product-info">
             <h3>{{ product.name }}</h3>
-            
             <p class="price">${{ product.price }}</p>
             {% if product.old_price %}
                 <p class="old-price">${{ product.old_price }}</p>
@@ -85,9 +80,15 @@ Home
             </div>
         </div>
     </div>
+    <div>
+    <button class="add-to-cart-btn" onclick="checkLogin()">Add to Cart</button> <!-- Button outside of the card -->
+    
+    </div>
     {% endfor %}
 </div>
+
+
+
 <script src="{% static 'home/js/script.js' %}"></script>
+<script src="{% static 'home/js/cart.js' %}"></script>
 {% endblock content %}
-
-

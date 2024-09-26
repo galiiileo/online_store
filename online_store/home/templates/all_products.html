@@ -24,7 +24,6 @@ All Products
         </div>
         <div class="product-info">
             <h3>{{ product.name }}</h3>
-            
             <p class="price">${{ product.price }}</p>
             {% if product.old_price %}
                 <p class="old-price">${{ product.old_price }}</p>
@@ -32,10 +31,29 @@ All Products
             <p class="description">{{ product.description }}</p>
             <div class="rating">
                 <span class="stars">⭐⭐⭐⭐⭐</span>
-                <span class="reviews">({{ product.reviews_count }})</span>
+                <span class="reviews">(65)</span>
             </div>
         </div>
     </div>
+    <div>
+    <button class="add-to-cart-btn" onclick="checkLogin()">Add to Cart</button> <!-- Button moved outside of the card -->
+    <style>.add-to-cart-btn {
+        background-color: #28a745; /* Green */
+        color: white;
+        border: none;
+        padding: 10px 15px; /* Reduced padding for a smaller button */
+        font-size: 14px; /* Smaller font size */
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 100px auto; /* Center the button */
+    }
+    
+    .add-to-cart-btn:hover {
+        background-color: #218838; /* Darker green */
+    }</style>
+</div>
     {% endfor %}
 </div>
+<script src="{% static 'home/js/cart.js' %}"></script>
 {% endblock content %}
+
