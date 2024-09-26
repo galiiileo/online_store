@@ -107,7 +107,7 @@
     object-fit: cover;
 }
 
-.details {
+.detailso {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
@@ -276,7 +276,7 @@
 }
 
 .add-to-cart-btn {
-    background-color: #28a745; /* Green */
+    background-color: #140e7a; /* Green */
     color: white;
     border: none;
     padding: 10px 15px; /* Reduced padding for a smaller button */
@@ -287,5 +287,5 @@
 }
 
 .add-to-cart-btn:hover {
-    background-color: #218838; /* Darker green */
+    background-color: #200a44; /* Darker green */
 }

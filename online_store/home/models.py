@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.utils.timezone import now
+from django.contrib.auth.models import User
 
 class Product(models.Model): 
     name = models.CharField(blank=True, null=True, max_length=255)
@@ -9,7 +10,8 @@ class Product(models.Model):
     sku = models.CharField(db_column='SKU', blank=True, null=True, max_length=255) 
     category = models.ForeignKey('ProductCategory', models.DO_NOTHING, blank=True, null=True)
     inventory = models.ForeignKey('ProductInventory', models.DO_NOTHING, blank=True, null=True)
-    price = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)  
+    price = models.DecimalField(max_digits=10, decimal_places=1, blank=True, null=True)
+    reviews_count = models.CharField(blank=True, null=True, max_length=255)
     created_at = models.DateField(default=now)
     modified_at = models.DateField(blank=True, null=True)  
     deleted_at = models.DateField(blank=True, null=True)  
@@ -40,6 +42,7 @@ class ProductCategory(models.Model):
     class Meta:
         managed = True
         db_table = 'product_category'
+
 
 
 

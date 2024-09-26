@@ -1,10 +1,18 @@
-/* Navigation Styles */
+/* Reset margins and padding for the body */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the footer stays at the bottom */
+}
 
+/* Navigation Styles */
 nav {
     background-color: #f8f9fa;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
+}
 
 ul {
     list-style-type: none;
@@ -47,12 +55,7 @@ img {
     height: 24px;
 }
 
-.nav-left {
-    display: flex;
-    align-items: center;
-}
-
-.nav-right {
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
 }
@@ -115,13 +118,14 @@ img {
 .icon-container:hover .details {
     display: block;
 }
-}
 
+/* Footer Styles */
 footer {
     background-color: #20253a;
     padding: 20px 0;
     color: #b8c6d0;
-
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
 
 .big {
     display: flex;
@@ -206,5 +210,4 @@ footer {
 
 .moka {
     font-size: 17px;
-}
 }
