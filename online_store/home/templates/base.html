@@ -18,7 +18,7 @@
                 <p>LOGA</p>
                 <li><a href="{% url 'home_page' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li><a href="{% url 'login'%}"> login</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
                 <div class="search-container">
                     <form method="GET" action="{% url 'search_results' %}">
@@ -46,9 +46,16 @@
                 </li>
                 
                 <li class="icon-container">
-                    <a href="#">
+
+                    {% if user.id %}
+                    <a href="{% url "profile" %}">
                         <img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile">
                     </a>
+                    {% else %}
+                    <a href="{% url "login" %}">
+                        <img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile">
+                    </a>
+                    {% endif %}
                     <div class="details">Manage your profile</div>
                 </li>
             </div>

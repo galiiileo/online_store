@@ -38,7 +38,6 @@ class UserPayment(models.Model):
     payment_type = models.CharField(blank=True, null=True, max_length=255)
     provider = models.CharField(blank=True, null=True, max_length=255)
     account_no = models.IntegerField(blank=True, null=True)
-    expiry = models.DateField(blank=True, null=True)
 
     class Meta:
         managed = True
