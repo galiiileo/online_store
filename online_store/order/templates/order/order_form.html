@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select {
+        width: 50%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    .form-section {
+        margin-bottom: 30px;
+    }
+    .product-row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .product-row input {
+        width: 48%;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+<h1 style="color: green;" >product Order</h1><br>
+
+<form action="/submit_order" method="POST">
+    {% csrf_token %}
+
+    <!-- User Information -->
+    <div class="form-section">
+        <h2>User Information</h2>
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" value="{{ initial_data.first_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" value="{{ initial_data.last_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Telephone</label>
+            <input type="text" id="telephone" name="telephone" value="{{ initial_data.telephone }}" required>
+        </div>
+    </div>
+
+    <!-- Shipping Address -->
+    <div class="form-section">
+        <h2>Shipping Address</h2>
+        <div class="form-group">
+            <label for="address_line1">Address Line 1</label>
+            <input type="text" id="address_line1" name="address_line1" value="{{ initial_data.address_line1 }}" required>
+        </div>
+        <div class="form-group">
+            <label for="address_line2">Address Line 2</label>
+            <input type="text" id="address_line2" name="address_line2" value="{{ initial_data.address_line2 }}">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" value="{{ initial_data.city }}" required>
+        </div>
+        <div class="form-group">
+            <label for="postal_code">Postal Code</label>
+            <input type="text" id="postal_code" name="postal_code" value="{{ initial_data.postal_code }}" required>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" value="{{ initial_data.country }}" required>
+        </div>
+    </div>
+
+    <!-- Payment Details -->
+    <div class="form-section">
+        <h2>Payment Details</h2>
+        <div class="form-group">
+            <label for="payment_type">Payment Type</label>
+            <select id="payment_type" name="payment_type" required>
+                <option value="credit_card">Credit Card</option>
+                <option value="debit_card">Debit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="provider">Payment Provider</label>
+            <input type="text" id="provider" name="provider" value="{{ initial_data.provider }}" required>
+        </div>
+        <div class="form-group">
+            <label for="account_no">Account Number</label>
+            <input type="text" id="account_no" name="account_no" value="{{ initial_data.account_no }}" required>
+        </div>
+        <div class="form-group">
+            <label for="expiry">Expiry Date</label>
+            <input type="month" id="expiry" name="expiry" required>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-row" style="display: inline-flex;">
+        <div class="form-group">
+            <label for="product_2_name">Product Name</label>
+            <input type="text" id="product_2_name" name="product_2_name">
+        </div>
+        <div class="form-group ">
+            <label for="product_2_quantity">Quantity</label>
+            <input type="number" id="product_2_quantity" name="product_2_quantity" min="1">
+        </div>
+    </div>
+    <!-- Order Total -->
+    <div class="form-section">
+        <h2>Order Total</h2>
+        <div class="form-group">
+            <label for="total_amount">Total Amount</label>
+            <input type="text" id="total_amount" name="total_amount" required>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" style="margin: 10px;">submit</button>
+</form>
+
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
