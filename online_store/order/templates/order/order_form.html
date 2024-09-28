@@ -45,7 +45,6 @@
 <form action="/submit_order" method="POST">
     {% csrf_token %}
 
-    <!-- User Information -->
     <div class="form-section">
         <h2>User Information</h2>
         <div class="form-group">
@@ -62,7 +61,6 @@
         </div>
     </div>
 
-    <!-- Shipping Address -->
     <div class="form-section">
         <h2>Shipping Address</h2>
         <div class="form-group">
@@ -111,35 +109,32 @@
             <input type="month" id="expiry" name="expiry" required>
         </div>
     </div>
-
-    <!-- Product 2 -->
+    {% for product in products %}
     <div class="product-row" style="display: inline-flex;">
         <div class="form-group">
-            <label for="product_2_name">Product Name</label>
-            <input type="text" id="product_2_name" name="product_2_name">
+            <label for="product_name">Product Name</label>
+            <input type="text" id="product_name" name="product_name" value="{{product.name}}" >
         </div>
         <div class="form-group ">
-            <label for="product_2_quantity">Quantity</label>
-            <input type="number" id="product_2_quantity" name="product_2_quantity" min="1">
+            <label for="product_quantity">Quantity</label>
+            <input type="number" id="product_quantity" name="product_quantity" value="{{ cartitems.quantity }}" min="1">
         </div>
     </div>
-    <!-- Order Total -->
+    {% endfor %}
+
     <div class="form-section">
         <h2>Order Total</h2>
         <div class="form-group">
             <label for="total_amount">Total Amount</label>
-            <input type="text" id="total_amount" name="total_amount" required>
+            <input type="text" id="total_amount" name="total_amount"value="{{ initial_datatotal_amount}}" required>
         </div>
     </div>
 
-    <!-- Submit Button -->
     <button type="submit" style="margin: 10px;">submit</button>
 </form>
 
 </body>
 {% endblock %}
-
-
 
 
 
