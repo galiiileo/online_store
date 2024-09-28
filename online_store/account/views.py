@@ -94,4 +94,8 @@ def profile(request):
 
     return render(request, "registration/profile.html", {'user': user, 'form': form})
 
-
+def logout(request):
+    # Clear the specific user session variable
+    request.session.pop('user_id', None)  # Adjust according to how you track user sessions
+    messages.success(request, 'You have been logged out from your profile.')
+    return redirect('home_page')  # Adjust to your home URL name

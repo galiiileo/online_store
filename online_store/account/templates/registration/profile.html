@@ -2,36 +2,40 @@
 {% load static %}
 
 {% block title %}
-Registration
+Profile
 {% endblock title %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'account/CSS/styles3.css' %}">
 
-<h1 class="ddddd">{{ user.first_name }}'s Profile</h1>
+<h1>{{ user.first_name }}'s Profile</h1>
 
-<form method="POST" enctype="multipart/form-data" class="llllll">
+<form method="POST" enctype="multipart/form-data" class="profile-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="cdf">Update Profile</button>
+    <button type="submit" class="update-button">Update Profile</button>
+</form>
+
+<!-- Log Out Button -->
+<form method="POST" action="{% url 'logout' %}" class="logout-form">
+    {% csrf_token %}
+    <button type="submit" class="logout-button">Log Out</button>
 </form>
 
 {% if messages %}
-    <ul class="rrrrt">
+    <ul class="messages">
         {% for message in messages %}
-            <li class="cccz">{{ message }}</li>
+            <li>{{ message }}</li>
         {% endfor %}
     </ul>
 {% endif %}
 
-<h2 class="czxx">User Information</h2>
-<p class="cbc"><strong>Username:</strong> {{ user.username }}</p>
-<p  class="cbc"><strong>First Name:</strong> {{ user.first_name }}</p>
-<p  class="cbc"><strong>Last Name:</strong> {{ user.last_name }}</p>
-<p class="cbc"><strong>Address:</strong> {{ user.address }}</p>
-<p class="cbc"><strong>Telephone:</strong> {{ user.telephone }}</p>
-<img class="sdf" src="{{ user.image.url }}" alt="{{ user.username }}'s Image" />
-
-
+<h2>User Information</h2>
+<p><strong>Username:</strong> {{ user.username }}</p>
+<p><strong>First Name:</strong> {{ user.first_name }}</p>
+<p><strong>Last Name:</strong> {{ user.last_name }}</p>
+<p><strong>Address:</strong> {{ user.address }}</p>
+<p><strong>Telephone:</strong> {{ user.telephone }}</p>
+<img src="{{ user.image.url }}" alt="{{ user.username }}'s Image" />
 
 {% endblock content %}
