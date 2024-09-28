@@ -89,6 +89,9 @@ def profile(request):
             form.save()
             messages.success(request, 'Your profile has been updated successfully.')
             return redirect('profile')
-        form = UserUpdateForm(instance=user)
+    else:
+        form = UserUpdateForm(instance=user)  # Move this inside the else clause
 
     return render(request, "registration/profile.html", {'user': user, 'form': form})
+
+
