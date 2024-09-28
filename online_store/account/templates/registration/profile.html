@@ -36,6 +36,7 @@ Profile
 <p><strong>Last Name:</strong> {{ user.last_name }}</p>
 <p><strong>Address:</strong> {{ user.address }}</p>
 <p><strong>Telephone:</strong> {{ user.telephone }}</p>
+{% if user.image %}
 <img src="{{ user.image.url }}" alt="{{ user.username }}'s Image" />
-
+{% endif %}
 {% endblock content %}
