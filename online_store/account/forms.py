@@ -1,4 +1,4 @@
-# forms.py
+
 from django import forms
 from .models import User, UserAddress, UserPayment
 
@@ -16,7 +16,7 @@ class UserSignupForm(forms.ModelForm):
             'telephone',
         ]
         widgets = {
-            'password': forms.PasswordInput(),  # Use a password input widget for password
+            'password': forms.PasswordInput(),
         }
 
 
@@ -45,10 +45,17 @@ class UserPaymentForm(forms.ModelForm):
         ]
 
 
-# forms.py
-from django import forms
+
+
 from django.contrib.auth.models import User
 
 class UserLoginForm(forms.Form):
     username = forms.CharField(max_length=255)
     password = forms.CharField(widget=forms.PasswordInput())
+
+from .models import User
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'address', 'telephone', 'image']

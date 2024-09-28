@@ -8,4 +8,5 @@ urlpatterns = [
     path('category/<int:category_id>/', category_view, name='category_view'),
     path("about/", about, name="about"),
     path("contact/", contact, name="contact"),
+    
 ]

@@ -1,25 +1,25 @@
-<!-- signup.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-</head>
-<body>
-    <h1>Signup</h1>
-    <form method="POST" enctype="multipart/form-data">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Sign Up
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'account/CSS/styles.css' %}">
+
+    <h1 class="loma">Signup</h1>
+    <form method="POST" enctype="multipart/form-data" class="fakonak">
         {% csrf_token %}
-        <h2>User Information</h2>
+        <h2 class="loma">User Information</h2>
         {{ user_form.as_p }}
         
-        <h2>Address Information</h2>
+        <h2 class="loma">Address Information</h2>
         {{ address_form.as_p }}
         
-        <h2>Payment Information</h2>
+        <h2 class="loma">Payment Information</h2>
         {{ payment_form.as_p }}
         
-        <button type="submit">Signup</button>
+        <button type="submit" class="bakonak">Signup</button>
     </form>
-</body>
-</html>
+    {% endblock content %}
