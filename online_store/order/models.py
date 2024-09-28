@@ -2,17 +2,12 @@ from django.db import models
 
 
 class OrderDetails(models.Model):
-    STATUS_CHOICES = [
-        ('received', 'Received'),
-        ('in_delivery', 'In Delivery'),
-        ('delivered', 'Delivered'),
-    ]
     user = models.ForeignKey('account.User', models.DO_NOTHING, blank=True, null=True)
     total = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     payment = models.ForeignKey('PaymentDetails', models.DO_NOTHING, blank=True, null=True)
     created_at = models.TextField(blank=True, null=True)  # This field type is a guess.
     modified_at = models.TextField(blank=True, null=True)  # This field type is a guess.
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='received')
+    status = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = True
