@@ -102,7 +102,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "online_store",
         "USER": "postgres",
-        "PASSWORD": "kali",
+        "PASSWORD": "root",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }

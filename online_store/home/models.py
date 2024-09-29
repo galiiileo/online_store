@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import date
 from django.utils.timezone import now
-from django.contrib.auth.models import User
 
 class Product(models.Model): 
     name = models.CharField(blank=True, null=True, max_length=255)
