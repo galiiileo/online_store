@@ -81,9 +81,11 @@ Home
             </div>
         </div>
     </div>
-    <div>
+    <div class='d-flex flex-column'>
         <a class="add-to-cart-btn" href="{% url 'add_to_cart' product_id=product.id %}">Add to Cart</a>
+        <a class=" btn btn-warning" href="{% url 'add_to_wishlist' product_id=product.id %}">Add to wishlist</a>
     </div>
+    
     {% endfor %}
 </div>
 
