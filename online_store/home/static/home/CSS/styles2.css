@@ -211,3 +211,10 @@ footer {
 .moka {
     font-size: 17px;
 }
+
+
+.btn btn-success mt-1{
+
+    background-color: #20253a;
+    font-weight: bold;
+}

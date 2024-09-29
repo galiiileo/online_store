@@ -6,40 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}LOGA{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'home/CSS/styles2.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-   
 </head>
 <body>
-    <link rel="stylesheet" href="{% static 'home/CSS/styles2.css' %}">
-    
     <nav>
-       
         <ul>
             <div class="nav-left">
                 <p>LOGA</p>
                 <li><a href="{% url 'home_page' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                {% if not user.id %}<li><a href="{% url 'login'%}"> login</a></li>{% endif %}
+                {% if not user.id %}<li><a href="{% url 'login' %}">Login</a></li>{% endif %}
                 <li><a href="{% url 'contact' %}">Contact</a></li>
+                
                 {% if user.id %}
                     <li>
                         <form action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
-                            <button class="btn btn-success mt-1 "  type="submit">logout</button>
+                            <button class="btn btn-success mt-1" type="submit">Logout</button>
                         </form>
                     </li>
+                    
+                    {% if user.is_superuser %}  <!-- Check if the user is a superuser -->
+                        <li><a href="{% url 'index' %}" class="btn btn-warning">Manage</a></li>
+                    {% endif %}
                 {% endif %}
+
                 <div class="search-container">
                     <form method="GET" action="{% url 'search_results' %}">
-                        <button type="submit"  class="search-button"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=000000"></button>
+                        <button type="submit" class="search-button"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=000000"></button>
                         <input type="text" id="search" name="search" placeholder="Search for products..." required>
-                        
                     </form>
                 </div>
-               
-
             </div>
+
             <div class="nav-right">
                 <li class="icon-container">
                     <a href="{% url 'wishlist_view' %}">
@@ -56,13 +54,12 @@
                 </li>
                 
                 <li class="icon-container">
-
                     {% if user.id %}
-                    <a href="{% url "profile" %}">
+                    <a href="{% url 'profile' %}">
                         <img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile">
                     </a>
                     {% else %}
-                    <a href="{% url "login" %}">
+                    <a href="{% url 'login' %}">
                         <img src="https://img.icons8.com/?size=100&id=14736&format=png&color=000000" alt="Profile">
                     </a>
                     {% endif %}
@@ -72,28 +69,19 @@
         </ul>
     </nav>
 
-    
     <div class="container mt-4">
-        
         {% block content %}
-
-    
-
-    {% endblock content %}
+        {% endblock content %}
     </div>
 
-  
     <footer>
-   
         <div class="big">
             <div class="container2">
                 <section class="bod">
-                    
-                        <p class="bolda">Support</p>
-                        <p  class ="moka">112 Dokki, Giza, Egypt</p>
-                        <p class ="moka">loga125outlook@gmail.com</p>
-                        <p class ="moka">+201026874915</p>
-                   
+                    <p class="bolda">Support</p>
+                    <p class="moka">112 Dokki, Giza, Egypt</p>
+                    <p class="moka">loga125outlook@gmail.com</p>
+                    <p class="moka">+201026874915</p>
                 </section>
                 <section class="bod">
                     <p class="bolda">Account</p>
@@ -124,6 +112,5 @@
             </div>
         </div>
     </footer>
-   
 </body>
 </html>

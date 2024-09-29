@@ -28,3 +28,44 @@ h1{
 div.helptext{
     display:none;
 }
+
+
+
+.form-containerz {
+    max-width: 400px;
+    margin: auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mt-3 {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.vvvv {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.vvvv:hover {
+    text-decoration: underline;
+}
