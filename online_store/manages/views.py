@@ -13,6 +13,7 @@ def superuser_required(view_func):
 @superuser_required
 def index(request):
     return render(request, 'manages/index.html')
+
 def manage_products(request):
     products = Product.objects.all()
     return render(request,"manages/manageProducts.html",{'products':products})
@@ -23,7 +24,7 @@ def add_product(request):
     elif request.method == "POST":
         form=ProductForm(request.POST, request.FILES)
         form.save()
-        return redirect('home_page')
+        return redirect('manage_products')
 def edit_product(request,product_id):
     product = Product.objects.get(id=product_id)
 
@@ -34,12 +35,12 @@ def edit_product(request,product_id):
     elif request.method == "POST":
         form=ProductForm(request.POST,request.FILES,instance=product)
         form.save()
-        return redirect('home_page')
+        return redirect('manage_products')
 
 
 def delete_product(request, product_id):
     Product.objects.get(id=product_id).delete()
-    return redirect('home_page')
+    return redirect('manage_products')
 def orders(request):
     orders=OrderDetails.objects.all()
     return render(request,"manages/manageOrders.html",{'orders':orders})

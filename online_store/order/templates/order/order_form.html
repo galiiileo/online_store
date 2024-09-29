@@ -42,7 +42,7 @@
 <body>
 <h1 style="color: green;" >product Order</h1><br>
 
-<form action="/submit_order" method="POST">
+<form action="{% url 'home_page' %}" method="POST">
     {% csrf_token %}
 
     <!-- User Information -->
@@ -136,6 +136,7 @@
     </div>
 
     <!-- Submit Button -->
+
     <button type="submit" style="margin: 10px;">submit</button>
 </form>
 
