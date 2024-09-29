@@ -10,6 +10,8 @@ cart Items
 <div class="best-selling-section"> 
     <h2>cart items</h2>
     <a href="{% url 'home_page' %}" class="view-all-btn btn">Back</a>
+    <a href="{% url 'clear_cart' %}" class="btn btn-danger">Clear Cart</a>
+    <a href="#" class="btn btn-success">Order</a>
 </div>
 <div class="products">
     {% if products %}
@@ -37,7 +39,14 @@ cart Items
             </div>
         </div>
         <div>
-        <a class="add-to-cart-btn" href="{% url 'remove_from_cart' product_id=product.id %}">remove</a>
+            <form action="{% url 'remove_from_cart' product_id=product.id %}" method="POST">
+                {% csrf_token %}
+                <a class="btn btn-danger mb-3" href="{% url 'remove_from_cart' product_id=product.id %}">remove</a>
+            </form>
+            <form action="{% url 'add_to_wishlist' product_id=product.id %}" method="POST">
+            {% csrf_token %}
+            <a class=" btn btn-warning" href="{% url 'add_to_wishlist' product_id=product.id %}">Add to wishlist</a>
+        </form>
     </div>
         {% endfor %}
     {% else %}
