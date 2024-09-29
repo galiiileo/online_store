@@ -12,7 +12,7 @@ class registerView(CreateView):
     form_class = UserForm
     template_name = "registration/login.html"
     extra_context = {"signup":True}
-    success_url = "/accounts/login"
+    success_url = "/accounts/login/"
 
     def form_valid(self,form):
         user = form.save(commit=False)

@@ -37,7 +37,10 @@ Wishlist
             </div>
         </div>
         <div>
-        <a class="add-to-cart-btn" href="{% url 'remove_from_wishlist' product_id=product.id %}">remove</a>
+            <form action="{% url 'remove_from_wishlist' product_id=product.id %}" method="POST">
+                {% csrf_token %}
+                <a class="add-to-cart-btn" href="{% url 'remove_from_wishlist' product_id=product.id %}">remove</a>
+            </form>
     </div>
         {% endfor %}
     {% else %}
