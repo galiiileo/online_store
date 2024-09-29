@@ -11,7 +11,7 @@ cart Items
     <h2>cart items</h2>
     <a href="{% url 'home_page' %}" class="view-all-btn btn">Back</a>
     <a href="{% url 'clear_cart' %}" class="btn btn-danger">Clear Cart</a>
-    <a href="#" class="btn btn-success">Order</a>
+    <a href="{% url 'order_form' %}" class="btn btn-success">Order</a>
 </div>
 <div class="products">
     {% if products %}

@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from cart.models import CartItem
+from home.models import Product
 
 # Create your views here.
 def order_form(request):
-    return render(request, 'order/order_form.html')
+    products_id=CartItem.objects.filter(user=request.user)
+    products=Product.objects.filter(id__in=[item.product.id for item in products_id])
+    
+    return render(request, 'order/order_form.html', {'products': products})
 
 
 
