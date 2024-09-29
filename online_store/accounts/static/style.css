@@ -1,0 +1,30 @@
+.form-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-container>div{
+    width: 30%;
+}
+.form-container >div>label,input{
+    display: block;
+    margin: 10px;
+    width: 100%;
+
+
+}
+.form-container >div>input :not:nth-child(2){
+    display: block;
+    border: 1px solid black;
+    height: 35px;
+    border-radius: 10px;
+}
+div.helptext{
+    display:none;
+}

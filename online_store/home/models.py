@@ -16,9 +16,7 @@ class Product(models.Model):
     modified_at = models.DateField(blank=True, null=True)  
     deleted_at = models.DateField(blank=True, null=True)  
 
-    class Meta:
-        managed = True
-        db_table = 'product'
+
 
 class ProductInventory(models.Model):
     quantity = models.IntegerField(blank=True, null=True)
@@ -26,9 +24,7 @@ class ProductInventory(models.Model):
     modified_at = models.DateField(blank=True, null=True)  
     deleted_at = models.DateField(blank=True, null=True)  
 
-    class Meta:
-        managed = True
-        db_table = 'product_inventory'
+
 
 
 class ProductCategory(models.Model):
@@ -39,9 +35,7 @@ class ProductCategory(models.Model):
     modified_at = models.DateField(blank=True, null=True)  
     deleted_at = models.DateField(blank=True, null=True)  
 
-    class Meta:
-        managed = True
-        db_table = 'product_category'
+
 
 
 

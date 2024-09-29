@@ -58,6 +58,7 @@ Home
 
 <div class="products">
     {% for product in products %}
+    
     <div class="product-card">
         <div class="detailso">{{ product.desc }}</div>
         <div class="product-image">
@@ -81,9 +82,7 @@ Home
         </div>
     </div>
     <div>
-    <button class="add-to-cart-btn" onclick="checkLogin()">Add to Cart</button> <!-- Button outside of the card -->
-    <script>
-    </script>
+        <a class="add-to-cart-btn" href="">Add to Cart</a>
     </div>
     {% endfor %}
 </div>

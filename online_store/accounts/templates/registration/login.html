@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
+{% block title %}
+    login
+{% endblock %}
+{% block content %}
+    <h1 class="text-center text-success">{% if signup %}Sign up{% else %}Login{% endif %}</h1>
+    <div class="alert alert-success alert-dismissible fade show text-center my-5 d-none" role="alert">
+                <strong>Signed up!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+    <form method="post" class="form-container" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-success w-20">{% if signup %}Sign up{% else %}Login{% endif %}</button>
+        {% if not signup %}<p class="mt-3" >Do you want to create account ?<a href="{% url 'signup' %}" style="text-decoration: none">Register</a></p>{% endif %}
+    </form>
+
+    <script>
+        const urlparams = new URLSearchParams(window.location.search)
+        const success=urlparams.get("success")
+        if(success)
+        {
+          document.querySelector(".alert.d-none").classList.remove("d-none")
+
+        }
+    </script>
+
+
+{% endblock %}

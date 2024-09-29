@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}LOGA{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'home/CSS/styles2.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
    
 </head>
 <body>
@@ -18,8 +20,16 @@
                 <p>LOGA</p>
                 <li><a href="{% url 'home_page' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'login'%}"> login</a></li>
+                {% if not user.id %}<li><a href="{% url 'login'%}"> login</a></li>{% endif %}
                 <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if user.id %}
+                    <li>
+                        <form action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-success mt-1 "  type="submit">logout</button>
+                        </form>
+                    </li>
+                {% endif %}
                 <div class="search-container">
                     <form method="GET" action="{% url 'search_results' %}">
                         <button type="submit"  class="search-button"><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=000000"></button>
